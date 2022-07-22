@@ -5,9 +5,13 @@ class General extends Component {
     return (
       <div>
         <form>
-          <input></input>
-          <input></input>
-          <input></input>
+          <label htmlFor="name">Name: </label>
+          <input name="name"></input>
+          <label htmlFor="phone">Phone: </label>
+          <input name="phone"></input>
+          <label htmlFor="email">Email: </label>
+          <input name="email"></input>
+          <button>Submit</button>
         </form>
       </div>
     );
