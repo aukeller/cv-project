@@ -18,13 +18,9 @@ class General extends Component {
 
   toggleEditMode(e) {
     e.preventDefault();
-    if (this.state.editMode === true) {
-      this.setState({
-        editMode: false,
-      });
-    } else {
-      this.setState({ editMode: true });
-    }
+    this.state.editMode === true
+      ? this.setState({ editMode: false })
+      : this.setState({ editMode: true });
   }
 
   onInputChange(e) {
