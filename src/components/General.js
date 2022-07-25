@@ -11,15 +11,19 @@ class General extends Component {
       email: "",
     };
 
-    this.onSubmitForm = this.onSubmitForm.bind(this);
+    this.toggleEditMode = this.toggleEditMode.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
   }
 
-  onSubmitForm(e) {
+  toggleEditMode(e) {
     e.preventDefault();
-    this.setState({
-      editMode: false,
-    });
+    if (this.state.editMode === true) {
+      this.setState({
+        editMode: false,
+      });
+    } else {
+      this.setState({ editMode: true });
+    }
   }
 
   onInputChange(e) {
@@ -38,12 +42,24 @@ class General extends Component {
         <div>
           <form>
             <label htmlFor="name">Name: </label>
-            <input name="name" onChange={this.onInputChange}></input>
+            <input
+              name="name"
+              onChange={this.onInputChange}
+              value={this.state.name}
+            ></input>
             <label htmlFor="phone">Phone: </label>
-            <input name="phone" onChange={this.onInputChange}></input>
+            <input
+              name="phone"
+              onChange={this.onInputChange}
+              value={this.state.phone}
+            ></input>
             <label htmlFor="email">Email: </label>
-            <input name="email" onChange={this.onInputChange}></input>
-            <button onClick={this.onSubmitForm}>Submit</button>
+            <input
+              name="email"
+              onChange={this.onInputChange}
+              value={this.state.email}
+            ></input>
+            <button onClick={this.toggleEditMode}>Submit</button>
           </form>
         </div>
       );
@@ -53,6 +69,7 @@ class General extends Component {
           <div>{this.state.name}</div>
           <div>{this.state.phone}</div>
           <div>{this.state.email}</div>
+          <button onClick={this.toggleEditMode}>Edit</button>
         </div>
       );
     }
