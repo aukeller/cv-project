@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import GeneralForm from "./GeneralForm";
 
 class General extends Component {
   constructor() {
@@ -39,29 +40,13 @@ class General extends Component {
   render() {
     if (this.state.editMode) {
       return (
-        <div>
-          <form>
-            <label htmlFor="name">Name: </label>
-            <input
-              name="name"
-              onChange={this.onInputChange}
-              value={this.state.name}
-            ></input>
-            <label htmlFor="phone">Phone: </label>
-            <input
-              name="phone"
-              onChange={this.onInputChange}
-              value={this.state.phone}
-            ></input>
-            <label htmlFor="email">Email: </label>
-            <input
-              name="email"
-              onChange={this.onInputChange}
-              value={this.state.email}
-            ></input>
-            <button onClick={this.toggleEditMode}>Submit</button>
-          </form>
-        </div>
+        <GeneralForm
+          onInputChange={this.onInputChange}
+          toggleEditMode={this.toggleEditMode}
+          name={this.state.name}
+          phone={this.state.phone}
+          email={this.state.email}
+        />
       );
     } else {
       return (
