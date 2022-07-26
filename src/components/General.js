@@ -24,13 +24,7 @@ class General extends Component {
   }
 
   onInputChange(e) {
-    if (e.target.name === "name") {
-      this.setState({ name: e.target.value });
-    } else if (e.target.name === "phone") {
-      this.setState({ phone: e.target.value });
-    } else {
-      this.setState({ email: e.target.value });
-    }
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   render() {
