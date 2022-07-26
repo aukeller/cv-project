@@ -6,6 +6,9 @@ class Education extends Component {
 
     this.state = {
       editMode: true,
+      schoolName: "",
+      study: "",
+      date: "",
     };
   }
 
@@ -14,10 +17,26 @@ class Education extends Component {
       return (
         <div>
           <form>
-            <input></input>
-            <input></input>
-            <input></input>
+            <label htmlFor="school-name">
+              School Name: <input name="school-name" type="text" />
+            </label>
+            <label htmlFor="study">
+              Study: <input name="study" type="text" />
+            </label>
+            <label htmlFor="date-of-study">
+              Date of Study: <input name="date-of-study" type="text" />
+            </label>
+            <button>Submit</button>
           </form>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <div>{this.state.schoolName}</div>
+          <div>{this.state.study}</div>
+          <div>{this.state.date}</div>
+          <button>Edit</button>
         </div>
       );
     }
