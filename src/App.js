@@ -7,11 +7,26 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  toggleEditMode(e) {
+    e.preventDefault();
+    if (this.state.editMode === true) {
+      this.setState({ editMode: false });
+    } else {
+      this.setState({ editMode: true });
+    }
+  }
+
   render() {
     return (
       <div>
-        <General onInputChange={this.onInputChange}></General>
-        <Education onInputChange={this.onInputChange}></Education>
+        <General
+          onInputChange={this.onInputChange}
+          toggleEdit={this.toggleEditMode}
+        ></General>
+        <Education
+          onInputChange={this.onInputChange}
+          toggleEdit={this.toggleEditMode}
+        ></Education>
       </div>
     );
   }

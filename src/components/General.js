@@ -11,15 +11,6 @@ class General extends Component {
       phone: "",
       email: "",
     };
-
-    this.toggleEditMode = this.toggleEditMode.bind(this);
-  }
-
-  toggleEditMode(e) {
-    e.preventDefault();
-    this.state.editMode === true
-      ? this.setState({ editMode: false })
-      : this.setState({ editMode: true });
   }
 
   render() {
@@ -27,7 +18,7 @@ class General extends Component {
       return (
         <GeneralForm
           onInputChange={this.props.onInputChange.bind(this)}
-          toggleEditMode={this.toggleEditMode}
+          toggleEditMode={this.props.toggleEdit.bind(this)}
           name={this.state.name}
           phone={this.state.phone}
           email={this.state.email}
@@ -39,7 +30,7 @@ class General extends Component {
           <div>{this.state.name}</div>
           <div>{this.state.phone}</div>
           <div>{this.state.email}</div>
-          <button onClick={this.toggleEditMode}>Edit</button>
+          <button onClick={this.props.toggleEdit.bind(this)}>Edit</button>
         </div>
       );
     }

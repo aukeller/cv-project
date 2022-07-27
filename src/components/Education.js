@@ -13,7 +13,7 @@ class Education extends Component {
   }
 
   render() {
-    const { onInputChange } = this.props;
+    const { onInputChange, toggleEdit } = this.props;
 
     if (this.state.editMode) {
       return (
@@ -23,7 +23,7 @@ class Education extends Component {
               School Name:{" "}
               <input
                 onChange={onInputChange.bind(this)}
-                name="school-name"
+                name="schoolName"
                 type="text"
               />
             </label>
@@ -39,11 +39,11 @@ class Education extends Component {
               Date of Study:{" "}
               <input
                 onChange={onInputChange.bind(this)}
-                name="date-of-study"
+                name="date"
                 type="text"
               />
             </label>
-            <button>Submit</button>
+            <button onClick={toggleEdit.bind(this)}>Submit</button>
           </form>
         </div>
       );
@@ -53,7 +53,7 @@ class Education extends Component {
           <div>{this.state.schoolName}</div>
           <div>{this.state.study}</div>
           <div>{this.state.date}</div>
-          <button>Edit</button>
+          <button onClick={toggleEdit.bind(this)}>Edit</button>
         </div>
       );
     }
