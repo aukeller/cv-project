@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 class Education extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       editMode: true,
@@ -13,18 +13,35 @@ class Education extends Component {
   }
 
   render() {
+    const { onInputChange } = this.props;
+
     if (this.state.editMode) {
       return (
         <div>
           <form>
             <label htmlFor="school-name">
-              School Name: <input name="school-name" type="text" />
+              School Name:{" "}
+              <input
+                onChange={onInputChange.bind(this)}
+                name="school-name"
+                type="text"
+              />
             </label>
             <label htmlFor="study">
-              Study: <input name="study" type="text" />
+              Study:{" "}
+              <input
+                onChange={onInputChange.bind(this)}
+                name="study"
+                type="text"
+              />
             </label>
-            <label htmlFor="date-of-study">
-              Date of Study: <input name="date-of-study" type="text" />
+            <label htmlFor="date">
+              Date of Study:{" "}
+              <input
+                onChange={onInputChange.bind(this)}
+                name="date-of-study"
+                type="text"
+              />
             </label>
             <button>Submit</button>
           </form>

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import GeneralForm from "./GeneralForm";
 
 class General extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       editMode: true,
@@ -13,7 +13,6 @@ class General extends Component {
     };
 
     this.toggleEditMode = this.toggleEditMode.bind(this);
-    this.onInputChange = this.onInputChange.bind(this);
   }
 
   toggleEditMode(e) {
@@ -23,21 +22,11 @@ class General extends Component {
       : this.setState({ editMode: true });
   }
 
-  onInputChange(e) {
-    if (e.target.name === "name") {
-      this.setState({ name: e.target.value });
-    } else if (e.target.name === "phone") {
-      this.setState({ phone: e.target.value });
-    } else {
-      this.setState({ email: e.target.value });
-    }
-  }
-
   render() {
     if (this.state.editMode) {
       return (
         <GeneralForm
-          onInputChange={this.onInputChange}
+          onInputChange={this.props.onInputChange.bind(this)}
           toggleEditMode={this.toggleEditMode}
           name={this.state.name}
           phone={this.state.phone}
